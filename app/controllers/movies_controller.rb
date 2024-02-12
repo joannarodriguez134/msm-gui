@@ -76,10 +76,5 @@ class MoviesController < ApplicationController
 
     # Redirect to movies details page
     redirect_to("/movies/#{the_movie.id}")
-
-    
-    
-    
-  
   end
 end

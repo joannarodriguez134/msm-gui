@@ -4,13 +4,9 @@
 
 <hr>
 
-<% actor_record = @list_of_actors.at(0)%>
-
-<% actor_id = actor_record.id %>
 
 
-
-<form action="/modify_actor_record/<%= actor_id %>" method="post">
+<form action="/insert_actor_record" method="post">
   <div>
     <label for="name_field"> Name </label>
     <input id="name_field" type="text" name="the_name">

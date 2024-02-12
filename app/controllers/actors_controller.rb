@@ -18,22 +18,36 @@ class ActorsController < ApplicationController
   
   def update
     # Get the id params out of the hash
-    the_id = params.fetch("path_id")
+    the_id = params.fetch("an_id")
+
     # Look up existing records
     matching_records= Actor.where(id: the_id)
     @an_actor = matching_records.at(0)
 
     # Overwrite each column with user inputs
     @an_actor.name = params.fetch("the_name")
-    @an_actor.dob = params.fetch("the_date")
+    @an_actor.dob = params.fetch("the_dob")
     @an_actor.bio = params.fetch("the_bio")
     @an_actor.image = params.fetch("the_image")
 
     # save 
     @an_actor.save
 
-    # Redirect to actors index page (list of actors)
-    redirect_to("/actors")
+    # Redirect to actors details page
+    redirect_to("/actors/#{@an_actor.id}")
   end
 
+  def create
+
+    a = Actor.new
+    a.name = params.fetch("the_name")
+    a.dob = params.fetch("the_date")
+    a.bio = params.fetch("the_bio")
+    a.image = params.fetch("the_image")
+
+    a.save
+    
+    redirect_to("/actors")
+
+  end
 end
