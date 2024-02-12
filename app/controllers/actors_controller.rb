@@ -50,4 +50,14 @@ class ActorsController < ApplicationController
     redirect_to("/actors")
 
   end
+
+  def destroy
+    the_id = params.fetch("an_id")
+    matching_actors = Actor.where( id: the_id )
+    the_actor = matching_actors.at(0)
+
+    the_actor.destroy
+
+    redirect_to("/actors")
+  end
 end
