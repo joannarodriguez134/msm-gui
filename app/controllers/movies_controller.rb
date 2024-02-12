@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
     # {"the_title"=>"1", "the_year"=>"2", "the_duration"=>"3", "the_description"=>"4", "the_image"=>"5", "the_director_id"=>"6"}
 
     m = Movie.new
-    
+
     m.title = params.fetch("the_title")
     m.year = params.fetch("the_year")
     m.duration = params.fetch("the_duration")
@@ -41,5 +41,16 @@ class MoviesController < ApplicationController
     @the_movie = matching_movies.at(0)
 
     render({ :template => "movie_templates/show" })
+  end
+
+  def destroy
+    the_id = params.fetch("an_id")
+    matching_records = Movie.where( id: the_id)
+    the_movie = matching_records.at(0)
+
+    the_movie.destroy
+
+    redirect_to("/movies")
+
   end
 end
