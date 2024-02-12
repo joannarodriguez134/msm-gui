@@ -7,6 +7,34 @@
 </a>
 
 <hr>
+  <form action="/modify_director_record/<%= @the_director.id %>" method="post">
+  
+    <div>
+      <label for="name_field"> Name </label>
+      <input id="name_field" type="text" name="director_name" value="<%= @the_director.name %>">
+    </div>
+
+    <div>
+      <label for="dob_field"> Dob </label>
+      <input id="dob_field" type="date" name="director_dob" value="<%= @the_director.dob %>">
+    </div>
+
+    <div>
+      <label for="bio_field"> Bio </label>
+      <input id="bio_field" type="text" name="director_bio" value="<%= @the_director.bio %>">
+    </div>
+
+    <div>
+      <label for="image_field"> Image </label>
+      <input id="image_field" type="text" name="director_image" value="<%= @the_director.image %>">
+    </div>
+
+    <button>
+      Submit
+    </button>
+
+  </form>
+<hr>
 
 <dl>
   <dt>
