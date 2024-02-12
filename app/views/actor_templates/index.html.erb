@@ -4,6 +4,40 @@
 
 <hr>
 
+<% actor_record = @list_of_actors.at(0)%>
+
+<% actor_id = actor_record.id %>
+
+
+
+<form action="/modify_actor_record/<%= actor_id %>" method="post">
+  <div>
+    <label for="name_field"> Name </label>
+    <input id="name_field" type="text" name="the_name">
+  </div>
+    
+  <div>
+    <label for="date_field"> Dob </label>
+    <input id="date_field" type="date" name="the_date">
+  </div>
+
+  <div>
+    <label for="bio_field"> Bio </label>
+    <input id="bio_field" type="text" name="the_bio">
+  </div>
+
+  <div>
+    <label for="image_field"> Image </label>
+    <input id="image_field" type="text" name="the_image">
+  </div>
+
+  <button>
+    Create actor
+  </button>
+</form>
+
+<hr>
+
 <table border="1">
   <tr>
     <th>
